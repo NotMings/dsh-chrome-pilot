@@ -1,8 +1,11 @@
 name: publish
 
-# Tag a release and this publishes it. The package must already exist on npm:
-# npm cannot attach a trusted publisher to a package that has never been
-# published, so the very first version goes out manually.
+# Tag a release and this publishes it.
+#
+# The package must already exist on npm: npm cannot attach a trusted publisher
+# to a package that has never been published, so the first version goes out
+# manually. After that, add this repository and workflow as a trusted publisher
+# on npmjs.com and every later tag publishes itself.
 on:
   push:
     tags: ['v*']
@@ -25,10 +28,25 @@ jobs:
 
       - run: node --check index.js && node --check client.js
 
+      # A tag often ships a version that was already published by hand (the
+      # first release, or a retried one). Skip instead of failing the run.
+      - id: check
+        run: |
+          version=$(node -p "require('./package.json').version")
+          name=$(node -p "require('./package.json').name")
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          if npm view "$name@$version" version > /dev/null 2>&1; then
+            echo "$name@$version is already on npm; nothing to publish"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       # Trusted publishing: no token in the repository, npm verifies this
-      # workflow through OIDC. If you have not configured it yet, uncomment the
+      # workflow through OIDC. Until that is configured, uncomment the
       # NODE_AUTH_TOKEN line and add an NPM_TOKEN secret instead.
-      - run: npm publish --provenance --access public
+      - if: steps.check.outputs.skip == 'false'
+        run: npm publish --provenance --access public
         env:
           # NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: 'true'

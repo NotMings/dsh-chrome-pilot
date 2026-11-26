@@ -1,6 +1,6 @@
 {
   "name": "dsh-chrome-pilot",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "A real Chrome the agent can drive, with logins that survive restarts.",
   "keywords": [
