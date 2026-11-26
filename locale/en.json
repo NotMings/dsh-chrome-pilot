@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Chrome pilot",
+    "description": "Gives the agent a real Chrome it can drive: native mouse, keyboard, wheel and drag, with logins kept in a dedicated profile that survives restarts. Runs over CDP through agent-browser, with no browser extension.",
+    "detail": "README.md"
+  }
+}

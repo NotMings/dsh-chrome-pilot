@@ -1,0 +1,15 @@
+# Adds the Chrome pilot tool family to a DSH profile.
+- insert:
+    - id: chrome-pilot
+      name: dsh-chrome-pilot
+      config:
+        # Leave a value empty to use the platform default.
+        profileDir: ''
+        executablePath: ''
+        sourceUserData: ''
+        screenshotDir: ''
+        headed: true
+        profileSync: false
+        syncIndexedDb: false
+        session: dsh-pilot
+        timeoutMs: 120000

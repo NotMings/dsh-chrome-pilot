@@ -1,0 +1,53 @@
+{
+  "name": "dsh-chrome-pilot",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "A real Chrome the agent can drive, with logins that survive restarts.",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "chrome",
+    "cdp",
+    "browser-automation"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "README.md",
+    "README.zh-CN.md",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": []
+    }
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "~3.19.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NotMings/dsh-chrome-pilot.git"
+  },
+  "homepage": "https://github.com/NotMings/dsh-chrome-pilot#readme",
+  "bugs": {
+    "url": "https://github.com/NotMings/dsh-chrome-pilot/issues"
+  }
+}

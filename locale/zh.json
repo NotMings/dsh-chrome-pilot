@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Chrome 驾驶舱",
+    "description": "让 agent 驾驶一个真实的 Chrome：原生鼠标、键盘、滚轮与拖拽，登录态存在独立 profile 里、重启不丢。通过 agent-browser 走 CDP，不依赖浏览器扩展。",
+    "detail": "README.md"
+  }
+}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Chrome pilot">
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#101418"/>
+  <circle cx="30" cy="28" r="15" fill="none" stroke="#4dabf7" stroke-width="3.2"/>
+  <path d="M20 22h20" stroke="#f8f9fa" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="30" cy="28" r="5" fill="#4dabf7"/>
+  <path d="M40 36 L54 42 L46.5 44.8 L43.4 52 Z" fill="#f8f9fa" stroke="#101418" stroke-width="1.6" stroke-linejoin="round"/>
+</svg>
